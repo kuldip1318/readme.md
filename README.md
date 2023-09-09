@@ -92,14 +92,14 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
   ```sh
   GET https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/v1/instances/{name}
 
-  e.g https://cci-server-2-apisix-gateway.cci-dev.com/so/v1/instances/cmts1
+  e.g https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/so/v1/instances/cmts1
   ```  
 - To get all instances with deployedInstances from database :
   
   ```sh
   GET https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/v1/instances/deployedInstances
   
-  e.g https://cci-server-2-apisix-gateway.cci-dev.com/so/v1/instances/deployedInstances
+  e.g https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/so/v1/instances/deployedInstances
   ```
 
 - To get status of an specific instance
@@ -107,7 +107,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
   ```sh
   GET https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/v1/instances/{name}/status
   
-  e.g https://cci-server-2-apisix-gateway.cci-dev.com/so/v1/instances/cmts1/status
+  e.g https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/so/v1/instances/cmts1/status
   ```
 
 - To get all policies of an specific instance
@@ -115,10 +115,11 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
   ```sh
   GET https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/v1/instances/{name}/policies
   
-  e.g https://cci-server-2-apisix-gateway.cci-dev.com/so/v1/instances/cmts1/policies
+  e.g https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/so/v1/instances/cmts1/policies
   ```
         
 - To compile model from database :
+- NOTE: *Copy the target csar file in sever and give that path in url*
   
   ```sh
   POST https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/compiler/v1/model/compile
@@ -137,7 +138,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
   "inputsUrl": ""
   }
   
-  e.g  https://cci-server-2-apisix-gateway.cci-dev.com/compiler/v1/model/compile
+  e.g  https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/compiler/v1/model/compile
 
   
   {
@@ -155,10 +156,11 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
   
   ```
 - To save model in database :
-
+- NOTE: *Copy the target csar file in sever and give that path in url*
+ 
   ```sh
   POST https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/compiler/v1/model/db/save
-
+  
   {
   "url": "{path of csar}",
   "resolve": true,
@@ -174,7 +176,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
   "inputsUrl": ""
   }
 
-  e.g. https://cci-server-2-apisix-gateway.cci-dev.com/compiler/v1/model/db/save
+  e.g. https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/compiler/v1/model/db/save
   {
   "url": "/opt/app/csars/dcaf-cmts.csar",
   "resolve": true,
@@ -208,6 +210,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
   }
   ```
 - To create instance:
+- - NOTE: *Copy the target csar file in sever and give that path in service*
 
   ```sh
   POST https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/v1/instances/createInstance
@@ -233,7 +236,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
   }
 
  
-   e.g POST https://cci-server-2-apisix-gateway.cci-dev.com/so/v1/instances/createInstance
+   e.g POST https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/so/v1/instances/createInstance
 
   {
     "name": "dcaf91",
@@ -274,4 +277,18 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
     "list-steps-only": false,
     "execute-policy": true
   }
+  ```
+- To delete specific instance :
+  
+  ```sh
+  DELETE https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/v1/instances/deleteInstance/{INSTANCE_NAME}
+
+   e.g.  https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/so/v1/instances/deleteInstance/cmts1
+  ```
+- To delete specific policy of an instance :
+  
+  ```sh
+  DELETE https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/v1//instances/{INSTANCE_NAME}/policy/{POLICY_NAME}
+
+   e.g.  https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/so/v1/instances/cmts1/policy/packet_volume_limiter
   ```
