@@ -278,6 +278,28 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
     "execute-policy": true
   }
   ```
+- To create any schema in database:
+
+  ```sh
+  PUT https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/db/schema/create
+  
+  e.g. PUT https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/so/db/schema/create
+
+  {
+  "schemaName": "your_schema_name",
+  "fields": [
+    {
+      "fieldName": "field1",
+      "fieldType": "string",
+      "isRequired": true
+    }
+   
+    // Add more fields as needed
+  ]
+  }
+  ```
+  
+  
 - To delete specific instance :
   
   ```sh
