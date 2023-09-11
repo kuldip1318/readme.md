@@ -118,8 +118,8 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
   e.g https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/so/v1/instances/cmts1/policies
   ```
         
-- To compile model from database :
-- NOTE: *Copy the target csar file in sever and give that path in url*
+- To compile model :
+  - NOTE: *Give the csars path in url i.e home/ubuntu/gin-utils/csars/model.csar*
   
   ```sh
   POST https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/compiler/v1/model/compile
@@ -131,18 +131,15 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
   "quirks": [
   "data_types.string.permissive"],
   "output": "./Sample-dgraph-clout.json",
-  "inputs": {
-    "Sample_Input1": "Value1",
-    "Sample_Input2": "Value2"
-  },
-  "inputsUrl": ""
+  "inputs": "",
+  "inputsUrl": "",
   }
   
   e.g  https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/compiler/v1/model/compile
 
   
   {
-  "url": "/opt/app/csars/dcaf-cmts.csar",
+  "url": "home/ubuntu/gin-utils/csars/dcaf-cmts.csar",
   "resolve": true,
   "coerce": false,
   "quirks": [
@@ -155,8 +152,8 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
   }
   
   ```
-- To save model in database :
-- NOTE: *Copy the target csar file in sever and give that path in url*
+- To save model :
+  - NOTE: *Give the csars path in url i.e home/ubuntu/gin-utils/csars/model.csar*
  
   ```sh
   POST https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/compiler/v1/model/db/save
@@ -169,16 +166,13 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
     "data_types.string.permissive"
   ],
   "output": "./Sample-dgraph-clout.json",
-  "inputs": {
-    "Sample_Input1": "Value1",
-    "Sample_Input2": "Value2"
-  },
-  "inputsUrl": ""
+  "inputs": "",
+  "inputsUrl": "",
   }
 
   e.g. https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/compiler/v1/model/db/save
   {
-  "url": "/opt/app/csars/dcaf-cmts.csar",
+  "url": "home/ubuntu/gin-utils/csars/dcaf-cmts.csar",
   "resolve": true,
   "coerce": false,
   "quirks": [
@@ -191,7 +185,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
   }
   ```
 
-- To delete a model from database :
+- To delete a model :
 
   ```sh
   DELETE https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/compiler/v1/model/db/{MODEL_NAME}
@@ -210,7 +204,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
   }
   ```
 - To create instance:
-- - NOTE: *Copy the target csar file in sever and give that path in service*
+  - NOTE: *Give the csars path in service i.e. home/ubuntu/gin-utils/csars/model.csar*
 
   ```sh
   POST https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/v1/instances/createInstance
@@ -259,7 +253,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
         }
     },
     "inputsUrl": "",
-    "service": "zip:/opt/app/csars/dcaf-cmts.csar!/dcaf_service.yaml"
+    "service": "zip:/home/ubuntu/gin-utils/csars/dcaf-cmts.csar!/dcaf_service.yaml"
   }
   ```
 
