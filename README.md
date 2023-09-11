@@ -272,7 +272,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
     "execute-policy": true
   }
   ```
-- To create any schema in database:
+- To create any schema :
 
   ```sh
   PUT https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/db/schema/create
