@@ -87,13 +87,13 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
 #### POST API's :
 
 - To compile model :
-  - NOTE: *Give the csars path in url i.e home/ubuntu/gin-utils/csars/model.csar*
+  - NOTE: *copy the CSAR file in /home/ubuntu/gin-utils/csars directory to use this API*
   
   ```sh
   POST https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/compiler/v1/model/compile
   
   {
-  "url": "path of csar",
+  "url": "/opt/app/csars/{CSAR_NAME}",
   "resolve": true,
   "coerce": false,
   "quirks": [
@@ -107,7 +107,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
 
   
   {
-  "url": "home/ubuntu/gin-utils/csars/dcaf-cmts.csar",
+  "url": "/opt/app/csars/dcaf-cmts.csar",
   "resolve": true,
   "coerce": false,
   "quirks": [
@@ -122,13 +122,13 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
   ```
 
 - To save model :
-  - NOTE: *Give the csars path in url i.e home/ubuntu/gin-utils/csars/model.csar*
+  - NOTE: *copy the CSAR file in /home/ubuntu/gin-utils/csars directory to use this API*
  
   ```sh
   POST https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/compiler/v1/model/db/save
   
   {
-  "url": "{path of csar}",
+  "url": "/opt/app/csars/{CSAR_NAME}",
   "resolve": true,
   "coerce": false,
   "quirks": [
@@ -141,7 +141,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
 
   e.g. https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/compiler/v1/model/db/save
   {
-  "url": "home/ubuntu/gin-utils/csars/dcaf-cmts.csar",
+  "url": "/opt/app/csars/dcaf-cmts.csar",
   "resolve": true,
   "coerce": false,
   "quirks": [
@@ -228,7 +228,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
 #### POST API'S :
 
 - To create instance:
-  - NOTE: *Give the csars path in service i.e. home/ubuntu/gin-utils/csars/model.csar*
+  - NOTE: *copy the CSAR file in /home/ubuntu/gin-utils/csars directory to use this API*
 
   ```sh
   POST https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/v1/instances/createInstance
@@ -250,7 +250,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
         }
     },
     "inputsUrl": "",
-    "service": "{models csar path}"
+    "service": "zip:/opt/app/csars/{CSAR_NAME}!/dcaf_service.yaml"
   }
 
  
@@ -277,7 +277,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
         }
     },
     "inputsUrl": "",
-    "service": "zip:/home/ubuntu/gin-utils/csars/dcaf-cmts.csar!/dcaf_service.yaml"
+    "service": "zip:/opt/app/csars/dcaf-cmts.csar!/dcaf_service.yaml"
   }
   ```
 
