@@ -195,7 +195,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
 - To get specific instance from database :
   
   ```sh
-  GET https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/v1/instances/{name}
+  GET https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/v1/instances/{INSTANCE_NAME}
 
   e.g https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/so/v1/instances/cmts1
   ```  
@@ -210,7 +210,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
 - To get status of an specific instance
   
   ```sh
-  GET https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/v1/instances/{name}/status
+  GET https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/v1/instances/{INSTANCE_NAME}/status
   
   e.g https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/so/v1/instances/cmts1/status
   ```
@@ -218,7 +218,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
 - To get all policies of an specific instance
   
   ```sh
-  GET https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/v1/instances/{name}/policies
+  GET https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/v1/instances/{INSTANCE_NAME}/policies
   
   e.g https://dcaf-cmts-demo-apisix-gateway.cci-dev.com/so/v1/instances/cmts1/policies
   ```
@@ -234,7 +234,7 @@ Following APIs that can be used from a tool such as POSTMAN to troubleshoot GIN.
   POST https://{NAME_OF_AWS_INSTANCE}-apisix-gateway.{DOMAIN_NAME}/so/v1/instances/createInstance
   
   {
-    "name": "{instance-name}",
+    "name": "{INSTANCE_NAME}",
     "output": "dcaf-cmts.json",
     "generate-workflow": true,
     "execute-workflow": true,
